@@ -1,0 +1,11 @@
+{
+  "extends": ["next/core-web-vitals", "prettier"],
+  "rules": {
+    "no-console": ["error", { "allow": ["warn", "error", "info", "debug"] }],
+    "no-undef": "error",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "@next/next/no-html-link-for-pages": "off"
+  },
+  "plugins": ["simple-import-sort"]
+}
