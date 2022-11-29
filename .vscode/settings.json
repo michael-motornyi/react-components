@@ -6,5 +6,5 @@
   },
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
-  "conventionalCommits.scopes": []
+  "conventionalCommits.scopes": ["toast"]
 }
