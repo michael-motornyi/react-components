@@ -54,6 +54,7 @@ const Template: Story<ToastContaineProps> = (args) => {
           Add toast
         </button>
       </div>
+
       <ToastContainer
         position={args.position}
         autoDismiss={{
