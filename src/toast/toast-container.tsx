@@ -2,25 +2,28 @@ import cn from 'classnames';
 import React, { FC } from 'react';
 import { useInterval } from 'react-use';
 
-import { DEFAULT_DISSMISS_DURATION, TOAST_POSITIONS } from './constants';
+import { TOAST_POSITIONS } from './constants';
 import { Toast } from './toast';
 
 export type Props = {
   position: TOAST_POSITIONS;
   children: React.ReactElement<typeof Toast>[];
   className?: string;
-  removeLastOnTimer?: () => void;
+  autoDismiss?: {
+    setToasts: React.Dispatch<React.SetStateAction<any[]>>;
+    time: number;
+  };
 };
 
 export const ToastContainer: FC<Props> = ({
   position,
   children,
   className,
-  removeLastOnTimer,
+  autoDismiss,
 }) => {
   useInterval(
-    () => removeLastOnTimer?.(),
-    removeLastOnTimer ? DEFAULT_DISSMISS_DURATION : null
+    () => autoDismiss?.setToasts((items) => items.slice(1)),
+    autoDismiss ? autoDismiss.time : null
   );
 
   return (
